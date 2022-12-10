@@ -57,9 +57,9 @@ pipeline {
                 
                 sh """
                 sudo pip3 install checkov
-                checkov -d .
-                #checkov -d . --skip-check CKV_AWS_23,CKV_AWS_24,CKV_AWS_126,CKV_AWS_135,CKV_AWS_8,CKV_AWS_23,CKV_AWS_24
-                #checkov -d . --skip-check CKV_AWS*
+                checkov -d .  # This command is to scan everything, if you need to skip certain scan commend it out. 
+                #checkov -d . --skip-check CKV_AWS_23,CKV_AWS_24,CKV_AWS_126,CKV_AWS_135,CKV_AWS_8,CKV_AWS_23,CKV_AWS_24  # you can find this rules in the failed scan report.
+                #checkov -d . --skip-check CKV_AWS* . # This is saying skip all patterns matching CKV_AWS
                 """
                
             }
